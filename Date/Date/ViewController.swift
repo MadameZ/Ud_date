@@ -40,12 +40,12 @@ class ViewController: UIViewController {
 //        dateStringLbl.text = date.toString()
         
         /// format de la date
-        dateStringLbl.text = date.stringWithFormat(format)
+        dateStringLbl.text = "Format de la date et heure: \n" + date.stringWithFormat(format)
         
         /// timeInterval cad le nombre de secondes passées depuis une date
-        timeIntervalLbl.text = date.timeStamp()
+        timeIntervalLbl.text = "Le nombre de secondes passées: " + date.timeStamp() + " s"
         
-        calendarLbl.text = date.quelJour()
+        calendarLbl.text = "C'est: " + date.quelJour()
         
         ilyaLbl.text = date.components()
     }
@@ -79,16 +79,16 @@ extension Date {
         let cal = Calendar.current
         
             if cal.isDateInToday(self) {
-                str += "Aujourd'hui "
+                str += "aujourd'hui "
             }
             if cal.isDateInYesterday(self) {
                 str += "Hier "
             }
             if cal.isDateInTomorrow(self) {
-                str += "Demain "
+                str += "demain "
             }
             if cal.isDateInWeekend(self) {
-                str += "Weekend"
+                str += "le weekend"
             }
         
             return str
@@ -102,7 +102,7 @@ extension Date {
         let day = components.day ?? 0
         let hour = components.hour ?? 0
         let minute = components.minute ?? 0
-        return "Temps écoulé -> mois: \(month), jour(s): \(day), heure(s): \(hour), minute(s): \(minute)"
+        return "Temps écoulé: \n mois: \(-month)\n jour(s): \(-day)\n heure(s): \(-hour)\n minute(s): \(-minute)"
     }
 }
 
